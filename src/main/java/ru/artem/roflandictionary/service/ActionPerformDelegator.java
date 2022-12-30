@@ -7,6 +7,7 @@ import ru.artem.roflandictionary.swing.RoflamFrame;
 import java.awt.event.ActionEvent;
 import java.util.List;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -16,6 +17,8 @@ public class ActionPerformDelegator {
 
     private final ScheduledExecutorService service;
     private final DictionaryService dictionaryService;
+
+    private ScheduledFuture<?> scheduledFuture;
 
     private final AtomicInteger efforts = new AtomicInteger(0);
 
@@ -32,7 +35,7 @@ public class ActionPerformDelegator {
             mainFrame.setVisible(false);
             log.info(tname);
             //schedule thread that will setVisible window this a new word for translation
-            service.schedule(() -> {
+            scheduledFuture = service.schedule(() -> {
                 String randomWord1 = dictionaryService.getRandomWord();
                 mainFrame.setWord(randomWord1);
                 mainFrame.setVisible(true);
@@ -40,7 +43,7 @@ public class ActionPerformDelegator {
                 mainFrame.getTname().setText("");
                 mainFrame.doLayout();
                 mainFrame.setAlwaysOnTop(true);
-            }, 120, TimeUnit.SECONDS);
+            }, 60, TimeUnit.SECONDS);
         } else {
             int i = efforts.incrementAndGet();
             if(i >= 3){
@@ -58,6 +61,11 @@ public class ActionPerformDelegator {
             stringBuilder.append(" / ");
         }
         return stringBuilder.toString();
+    }
+
+    public Boolean isScheduledTaskDone(){
+        if(scheduledFuture == null) return null;
+        return scheduledFuture.isDone();
     }
 
 }

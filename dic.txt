@@ -2,7 +2,7 @@ Tie - связывать
 Dare - осмелился
 Breach - нарушить
 Sanctum - святилище
-Dash - crash
+to dash - crash
 Bitter - горький
 Mixologist - бармен
 Alumni - выпускник
@@ -82,15 +82,15 @@ Guffaw - хохотать
 Pull (oneself) together (идиома) - возьми себя в руки
 Confess - исповедоваться
 Plague - мучиться
-Afterburner - послевкусия
+Afterburn - жжение
 Tortue - пытка
 Cold shoulder (idiom) - игнорировать
 Fencing - фехтовальный
 Prom - выпускной
-Merely - посто
-Peers -  сверстники
+Merely - просто
+Peers - сверстники
 Nauseous - тошнотворный
-Expell -  исколючить
+Expell - исключить
 To file - подать
 Charges - обвинение
 Trail - тропа
@@ -173,7 +173,7 @@ Kooky - чокнутый
 Spooky - жуткий
 Crowd - толпа
 Double back (idiom) - вернуться обратно
-Call it a night (idiom) -  закругляться
+Call it a night (idiom) - закругляться
 Nada - ничего
 Struggle - борьба
 Search party - поисковая группа

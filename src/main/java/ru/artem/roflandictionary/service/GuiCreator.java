@@ -31,6 +31,7 @@ public class GuiCreator {
 
     public void setVisible(boolean f){
         mainFrame.setVisible(f);
+        mainFrame.setAlwaysOnTop(true);
     }
 
 }
