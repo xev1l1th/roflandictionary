@@ -3,37 +3,38 @@ package ru.artem.roflandictionary.controller;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import ru.artem.roflandictionary.service.ActionPerformDelegator;
+import ru.artem.roflandictionary.service.Dictionary;
 import ru.artem.roflandictionary.service.DictionaryLauncher;
-import ru.artem.roflandictionary.service.DictionaryRepo;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.stream.Stream;
+import ru.artem.roflandictionary.service.DictionaryUpdater;
 
 @Controller
 @Slf4j
 public class RoflanController {
 
     private final DictionaryLauncher dictionaryLauncher;
-    private final DictionaryRepo repo;
+    private final Dictionary storedDictionary;
     private final ActionPerformDelegator delegator;
 
-    public RoflanController(DictionaryLauncher dictionaryLauncher, DictionaryRepo repo, ActionPerformDelegator delegator) {
+    //mb use better composite
+    private final DictionaryUpdater<MultipartFile> dictionaryUpdater;
+
+    public RoflanController(DictionaryLauncher dictionaryLauncher, Dictionary storedDictionary, ActionPerformDelegator delegator, DictionaryUpdater<MultipartFile> dictionaryUpdater) {
         this.dictionaryLauncher = dictionaryLauncher;
-        this.repo = repo;
+        this.storedDictionary = storedDictionary;
         this.delegator = delegator;
+        this.dictionaryUpdater = dictionaryUpdater;
     }
 
     @GetMapping
     @ResponseBody
     public String launch(){
         if(!dictionaryLauncher.isLaunched()) {
-            if(!repo.isConfigured()){
+            if(!storedDictionary.isConfigured()){
                 return "repo is not configured, go to /configure and upload the dictionary";
             }
             dictionaryLauncher.launch();
@@ -42,7 +43,7 @@ public class RoflanController {
     }
 
     @GetMapping("/configure")
-    public String get(Model model){
+    public String get(){
         return "hello";
     }
 
@@ -50,10 +51,7 @@ public class RoflanController {
     @SneakyThrows
     @ResponseBody
     public String configure(MultipartFile file){
-        InputStream inputStream = file.getInputStream();
-        Stream<String> lines = new BufferedReader(new InputStreamReader(inputStream)).lines();
-        repo.updateDictionary(lines.toList());
-        inputStream.close();
+        dictionaryUpdater.update(file);
         return "configured";
     }
 

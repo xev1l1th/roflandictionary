@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
@@ -12,7 +13,12 @@ import java.util.concurrent.ScheduledExecutorService;
 public class RoflanConfig {
 
     @Bean
-    public ScheduledExecutorService scheduledExecutorService(){
+    public ScheduledExecutorService scheduledExecutorService() {
         return Executors.newSingleThreadScheduledExecutor();
+    }
+
+    @Bean
+    public Random random(){
+        return new Random();
     }
 }

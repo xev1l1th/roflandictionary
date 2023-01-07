@@ -1,2 +1,16 @@
-dictionary:
-  path: /Users/therealyou/IdeaProjects/RoflanDictionary/dic.txt
+spring:
+  session:
+    jdbc:
+      initialize-schema: always
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/roflandic?serverTimezone=UTC
+    username: root
+    password: 12345
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: validate
+  main:
+    allow-circular-references: true

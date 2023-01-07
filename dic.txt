@@ -22,7 +22,7 @@ Burial - погребальный
 Shroud - саван
 Prowl - бродить
 Demise - кончина/погибель
-Sharp - ровно
+Sharp(in time expression) - ровно
 Dedication - торжественное открытие
 Put your best face forward - выставить в лучшем свете
 Obvi - obvious
@@ -76,14 +76,14 @@ Coincidence - совпадение
 Clue - улика
 Pull smth - вытворить что-то
 Adolescents - подростки
-Underfunded - ндофинансируемая
+Underfunded - недофинансируемый
 Admire - восхищаюсь
 Guffaw - хохотать
 Pull (oneself) together (идиома) - возьми себя в руки
 Confess - исповедоваться
 Plague - мучиться
 Afterburn - жжение
-Tortue - пытка
+Torture - пытка
 Cold shoulder (idiom) - игнорировать
 Fencing - фехтовальный
 Prom - выпускной
@@ -92,7 +92,7 @@ Peers - сверстники
 Nauseous - тошнотворный
 Expell - исключить
 To file - подать
-Charges - обвинение
+Charges - обвинения
 Trail - тропа
 Way of putting it (idiom) - как бы это выразиться
 сounselor - вожатый
@@ -105,16 +105,16 @@ Sanity - здравомыслие
 Intact - нетронуто
 Board - правление
 Court - суд
-Driven mad - сведение с ума
+Drive mad - сводить с ума
 Vivid - яркий
 Howdy - привет
 //I break out into hives
 Peel off - отслаивается
-Pitch - подача
+Pitch - подача/питч
 Smirk - ухмыляется
 Nefarious - подлый
 Rumor - слух
-Swirl - кружатся
+to swirl - кружиться
 Get someone off - снять уголовное обвинение
 Pull string - заюзать власть
 Quad - двор
@@ -132,9 +132,9 @@ Conjure - вызывать
 Tchotchke - безделушка
 Toe-curling - безвкусная
 Hiker - пеший турист
-Vomiting - рвать(рвота)
+Vomiting - рвота
 Coherent - последовательный
-Diary - дневник, записки
+Diary - дневник/записки
 Insipid - безвкусный
 Whine - ныть
 Fit in - вписаться
@@ -147,9 +147,9 @@ Hide and seek - прятки
 Casket - гроб
 Olfactory sense - обоняние
 Pick up - уловить
-Feeble - немощная
+Feeble - немощный
 Beneath someone (idiom) - слишком позорно
-Bonding - сблизиться
+bond - связаться
 Chauffeuring - шоферство
 Crochets - вязанье крючком
 Adversary - противник
@@ -162,7 +162,7 @@ Powder room - дамская комната(туалет + душ)
 Nail file - пилочка для ногтей
 Weirdo - странный
 Need-to-know basis - служебная информация(секретная)
-Sweeten the pot - сделать Болле заманчивым(про деньги)
+Sweeten the pot - сделать более заманчивым(про деньги)
 Zealot - фанатик
 Vowed - клясться
 Solitude - одиночество
@@ -188,7 +188,7 @@ Lure - заманивать
 Adjust - приспосабливаться
 Make it all up (idiom) - выдумать
 Full disclosure (idiom) - на самом деле/честно говоря
-Other than - (idiom) кроме/исключая
+Other than (idiom) - кроме/исключая
 No offense - без обид
 None taken - без обид(ответ)
 Twisted - закрученный
@@ -205,13 +205,13 @@ Back off (idiom) - отвали
 Sulk - дуться
 Thrive - процветать
 Ran into - столкнулся
-Shrink - психиатр
+Shrink - психиатр(slang)
 Yakking - болтать
 Reconsider - пересмотреть
 Snap - сорваться
 Chop-chop (idiom) - поторопись
 Stubborn - упрямый
-Obsessive - маниакальный
+Obsessive - маниакальный/навязчивый
 Get (smith) off (ones) chest (idiom) - тяготит
 Hive - улей
 Snitch - стукач

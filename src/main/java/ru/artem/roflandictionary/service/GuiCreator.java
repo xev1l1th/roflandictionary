@@ -1,6 +1,7 @@
 package ru.artem.roflandictionary.service;
 
 import org.springframework.stereotype.Service;
+import ru.artem.roflandictionary.data.Word;
 import ru.artem.roflandictionary.swing.RoflamFrame;
 
 import javax.swing.*;
@@ -22,14 +23,17 @@ public class GuiCreator {
     public void createAndShowGui() {
         mainFrame = new RoflamFrame();
         mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        String randomWord = dictionaryService.getRandomWord();
-        mainFrame.setWord(randomWord);
-        mainFrame.setActionListener(event -> actionPerformDelegator.delegateActionPerform(event, mainFrame));
+        Word randomWord = dictionaryService.getRandomWord();
+        mainFrame.setWordToTranslate(randomWord);
+        mainFrame.setWord(randomWord.getValue());
+        mainFrame.setExtra(randomWord.getExtra());
+        mainFrame.setActionListener(event -> actionPerformDelegator.delegateActionPerform(mainFrame));
+        mainFrame.setiWasRightAction(event -> actionPerformDelegator.delegateIWasRightAction(mainFrame));
         mainFrame.setLocationRelativeTo(null);
         mainFrame.setVisible(true);
     }
 
-    public void setVisible(boolean f){
+    public void setVisible(boolean f) {
         mainFrame.setVisible(f);
         mainFrame.setAlwaysOnTop(true);
     }

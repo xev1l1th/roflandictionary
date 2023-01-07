@@ -20,7 +20,7 @@ public class DictionaryLauncher {
     }
 
     public void launch() {
-        if(!isLaunched) {
+        if (!isLaunched) {
             try {
                 SwingUtilities.invokeLater(guiCreator::createAndShowGui);
             } catch (Exception e) {
@@ -32,10 +32,10 @@ public class DictionaryLauncher {
         }
 
     }
+
     public void show() {
-        if(isLaunched) {
+        if (isLaunched) {
             guiCreator.setVisible(true);
         }
     }
-
 }
