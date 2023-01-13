@@ -37,7 +37,7 @@ public class InMemoryDictionaryRepo implements Dictionary {
     public List<String> getDefinition(String key) {
         for (Word word : listWord) {
             if (word.getValue().equals(key)) {
-                return word.getDefinition();
+                return word.getDefinition().stream().toList();
             }
         }
         throw new RuntimeException("no such word exception");

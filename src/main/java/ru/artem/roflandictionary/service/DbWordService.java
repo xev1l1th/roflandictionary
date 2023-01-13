@@ -16,7 +16,7 @@ import java.util.Random;
 
 @Service
 @Slf4j
-public class DbWordService implements WordService{
+public class DbWordService implements WordService {
 
     private final WordRepo wordRepo;
 
@@ -32,7 +32,7 @@ public class DbWordService implements WordService{
     }
 
     @PostConstruct
-    public void init(){
+    public void init() {
         wordService = applicationContext.getBean(DbWordService.class);
     }
 
@@ -61,6 +61,7 @@ public class DbWordService implements WordService{
         words.forEach(this::saveWord);
     }
 
+    @Override
     public Word findRandomWord() {
         List<Word> allWords = wordService.getAllWords();
         return allWords.get(random.nextInt(allWords.size()));

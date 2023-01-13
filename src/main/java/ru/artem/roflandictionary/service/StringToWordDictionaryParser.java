@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import ru.artem.roflandictionary.data.Word;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -11,6 +12,12 @@ import java.util.stream.Stream;
 
 @Service
 public class StringToWordDictionaryParser implements DictionaryParser<List<String>, List<Word>> {
+
+    private final List<StringExtractor> stringExtractors;
+
+    public StringToWordDictionaryParser(List<StringExtractor> stringExtractors) {
+        this.stringExtractors = stringExtractors;
+    }
 
     @SuppressWarnings("unchecked")
     @Override
@@ -35,17 +42,6 @@ public class StringToWordDictionaryParser implements DictionaryParser<List<Strin
             return s.substring(0, i);
         }
         return s;
-    }
-
-    //TODO mb use stack to get explanation in explanation (info (info about info))
-    private String extractExplanation(String s) {
-        if (s.contains("(") && s.contains(")")) {
-            int i = s.indexOf("(");
-            int j = s.indexOf(")");
-            return s.substring(i, j);
-        }
-        //return empty if explanation is not present
-        return "";
     }
 
     private Word parse(String line) {
@@ -76,16 +72,16 @@ public class StringToWordDictionaryParser implements DictionaryParser<List<Strin
             //exclude explanation from value;
             //String modified = excludeExplanation(value);
 
-            //get all extra from value and definition
-            String extra = Stream.concat(meaning.stream(), Stream.of(/*add explanations for value in the future*/))
-                    .map(this::extractExplanation)
-                    .collect(Collectors.joining(" - "));
+            //get all extra and definition
+            List<String> extras = meaning.stream()
+                    .flatMap(s -> stringExtractors.stream().map(e -> e.extract(s)))
+                    .flatMap(List::stream)
+                    .toList();
 
             word.setValue(value);
-            word.setDefinition(def);
-            word.setExtra(extra);
+            word.setDefinition(new HashSet<>(def));
+            word.setExtra(new HashSet<>(extras));
         }
         return word;
     }
-
 }

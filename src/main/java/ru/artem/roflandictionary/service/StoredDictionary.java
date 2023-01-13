@@ -25,7 +25,7 @@ public class StoredDictionary implements Dictionary{
     @Override
     public List<String> getDefinition(String key) {
         Word word = wordService.getWord(key);
-        return word.getDefinition();
+        return word.getDefinition().stream().toList();
     }
 
     @Override

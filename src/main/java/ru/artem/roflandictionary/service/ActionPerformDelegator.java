@@ -42,7 +42,7 @@ public class ActionPerformDelegator {
                 Word randomWord1 = dictionaryService.getRandomWord();
                 mainFrame.setWordToTranslate(randomWord1);
                 mainFrame.setWord(randomWord1.getValue());
-                mainFrame.setExtra(randomWord1.getExtra());
+                mainFrame.setExtra(String.join("\n", randomWord1.getExtra()));
                 mainFrame.setVisible(true);
                 mainFrame.setResult("");
                 mainFrame.getTname().setText("");

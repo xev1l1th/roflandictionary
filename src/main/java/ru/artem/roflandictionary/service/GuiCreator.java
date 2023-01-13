@@ -26,7 +26,7 @@ public class GuiCreator {
         Word randomWord = dictionaryService.getRandomWord();
         mainFrame.setWordToTranslate(randomWord);
         mainFrame.setWord(randomWord.getValue());
-        mainFrame.setExtra(randomWord.getExtra());
+        mainFrame.setExtra(String.join("\n", randomWord.getExtra()));
         mainFrame.setActionListener(event -> actionPerformDelegator.delegateActionPerform(mainFrame));
         mainFrame.setiWasRightAction(event -> actionPerformDelegator.delegateIWasRightAction(mainFrame));
         mainFrame.setLocationRelativeTo(null);
